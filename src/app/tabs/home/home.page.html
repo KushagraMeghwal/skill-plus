@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Left: Logo -->
+    <ion-buttons slot="start">
+      <ion-button>
+        <img src="assets/logo.png" alt="Logo" style="height: 40px; width: auto;">
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Right: Heart & Message Icons -->
+    <ion-buttons slot="end">
+      <ion-button (click)="openN()">
+        <ion-icon name="heart-outline" ></ion-icon>
+      </ion-button>
+      <ion-button (click)="openM()"  >
+        <ion-icon name="chatbubble-ellipses-outline" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- Gesture Wrapper -->
+  <div #swipeArea class="swipe-container">
+    <app-content></app-content>
+  </div>
+</ion-content>

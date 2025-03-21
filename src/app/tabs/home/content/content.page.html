@@ -1,0 +1,42 @@
+<ion-list>
+  <div *ngFor="let post of posts">
+    
+    <!-- Post Header -->
+    <ion-item lines="none" class="ion-margin-top">
+      <ion-avatar slot="start">
+        <img [src]="post.profilePhoto" alt="Profile">
+      </ion-avatar>
+      <ion-label>
+        <h3>{{ post.username }}</h3>
+        <p>{{ post.timeAgo }}</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end">
+        <ion-icon name="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-item>
+
+    <!-- Post Image -->
+    <ion-img [src]="post.imageUrl"></ion-img>
+
+    <!-- Like, Comment, Share -->
+    <ion-item lines="none">
+      <ion-buttons>
+        <ion-button fill="clear">
+          <ion-icon name="heart-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear">
+          <ion-icon name="chatbubble-outline"></ion-icon>
+        </ion-button>
+        <ion-button fill="clear">
+          <ion-icon name="paper-plane-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+  </div>
+</ion-list>
+  <!-- Infinite Scroll -->
+  <ion-infinite-scroll (ionInfinite)="loadMorePosts($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more posts...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
